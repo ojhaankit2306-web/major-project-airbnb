@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
 const path = require("path");
 const methodOverride = require("method-override");
+const ejsMate = require("ejs-mate");
 
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
@@ -24,6 +25,8 @@ main()
 
   app.use(express.urlencoded({extended:true}));
   app.use(methodOverride("_method"));
+  app.engine('ejs', ejsMate);
+  app.use(express.static(path.join(__dirname,"/public")));
 
 app.get("/", (req, res) => {
   res.send("Hi, I am root");
@@ -34,7 +37,7 @@ app.get("/Listings",async(req,res) =>{
   res.render("index.ejs",{ allListings});
 })
 
-app.get("/listing/new", (req, res) => {
+app.get("/listings/new", (req, res) => {
   res.render("new.ejs");
 });
 
@@ -43,7 +46,7 @@ app.get("/listings/:id",async(req,res)=>{
   let {id} = req.params;
   const listing = await Listing.findById(id);
   res.render("show.ejs",{listing})
-})
+});
 
 app.post("/listings", async (req, res) => {
   const newListing = new Listing(req.body.listing);
