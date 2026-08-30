@@ -1,5 +1,6 @@
 .navbar {
     height: 5rem;
+    background-color: white;
 }
 
 .fa-compass {
@@ -9,3 +10,69 @@
 .nav-link {
     color: #222222 !important; /* Fixed semicolon placement */
 }
+
+
+/* Footer */
+
+.footer {
+    background-color: #222222;
+    color: white;
+    margin-top: 50px;
+    padding-top: 40px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 0 50px 30px;
+    gap: 30px;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+}
+
+.footer-section h3 {
+    color: #fe424d;
+    margin-bottom: 15px;
+}
+
+.footer-section h4 {
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    max-width: 250px;
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+.footer-section a {
+    color: #cccccc;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.footer-section a:hover {
+    color: #fe424d;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    font-size: 22px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    text-align: center;
+    padding: 20px;
+    color: #cccccc;
+}
+
